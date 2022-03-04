@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product page</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Course Name</th>
+        <th>Duration</th>
+        <th>Mode</th>
+        <th>Institute Name</th>
+        <th>Locations</th>
+        <th>Category</th>
+        <th>Phone</th>
+        <th>Details</th>
+        <th>Rooms</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+{% for course in filtered %}
+    <tr>
+        <td>{{ course.cousename }}</td>
+        <td>{{ course.duration }}</td>
+        <td>{{ course.mode }}</td>
+        <td>{{ course.institutename }}</td>
+        <td>{{ course.location }}</td>
+        <td>{{ course.category }}</td>
+        <td>{{ course.phone }}</td>
+        <td>{{ course.details }}</td>
+        <td>{{ course.rooms }}</td>
+        <td>
+
+            <a href="/delete/{{ course.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+</body>
+</html>

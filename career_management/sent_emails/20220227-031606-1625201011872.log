@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: TestSite password reset
+From: mrdroidhack@gmail.com
+To: futuresmile.career@gmail.com
+Date: Sat, 26 Feb 2022 21:46:06 -0000
+Message-ID: <164591196680.3884.2119796353653756740@DESKTOP-E2FTF0B>
+
+You asked for password reset for email futuresmile.career@gmail.com. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/NQ/b1hieu-1f781a968abcf957cf99a8c5ac26e1ee/
+Your username, in case you've forgotten: futuresmile.career
+-------------------------------------------------------------------------------

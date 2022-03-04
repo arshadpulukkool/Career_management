@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+
+    <div class="cont">
+        <form action="login" method="post">
+            {% csrf_token %}
+        <div class="form sign-in">
+            {% for message in messages %}
+                <script class="alert">
+                    window.alert("{{message}}");
+                </script>
+            {% endfor %}
+            <h2>FUTURE SMILE</h2>
+            <label>
+                <span>Email</span>
+                <input type="email" name="email"/>
+            </label>
+            <label>
+                <span>Password</span>
+                <input type="password" name="pass1" />
+            </label>
+            <p class="forgot-pass">Forgot password?</p>
+            <input type="submit" class="submit" value="Sign In">
+            <button type="button" class="fb-btn">Login Later <span></span></button>
+        </div></form>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h2>New here?</h2>
+                    <p>Sign up and discover great amount of new opportunities!</p>
+                </div>
+                <div class="img__text m--in">
+                    <h2>One of us?</h2>
+                    <p>If you already has an account, just sign in. We've missed you!</p>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <form action="register" method="post">
+                {% csrf_token %}
+            <div class="form sign-up">
+                <h2>Create Account</h2>
+                <label>
+                    <span>Name</span>
+                    <input type="text" name="name" required/>
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" name="email" required/>
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="pass1" required/>
+                </label>
+                <label>
+                    <span>Confirm Password</span>
+                    <input type="password" name="pass2" required/>
+                </label>
+                <input type="submit" class="submit" value="Sign Up">
+                <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+            </div></form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.img__btn').addEventListener('click', function() {
+            document.querySelector('.cont').classList.toggle('s--signup');
+        });
+    </script>
+</body>
+
+</html>

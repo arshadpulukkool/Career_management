@@ -1,0 +1,32 @@
+{% load static %}
+<!<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/searches.css' %}">
+</head>
+<body>
+{% for filter in data %}
+    <div class="product">
+        <div class="product-img">
+            <img src="{% static 'css/filter.png' %}" alt="">
+            <span class="tag">new</span>
+        </div>
+        <div class="product-listing">
+            <div class="content">
+                <h1 class="name">{{filter.cousename}}</h1>
+                <p class="info">About : {{filter.details}} <br>Course Duration : {{filter.duration}} <br>Mode : {{filter.mode}} <br>Phone : {{filter.phone}}<br>Located at :{{filter.location}}<br>Nearby Rooms :{{filter.rooms}}</p>
+                <p class="price">{{filter.institutename}}</p>
+                <div class="btn-and-rating-box">
+                    <button class="btn">{{filter.category}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</body>
+</html>

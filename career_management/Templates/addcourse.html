@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Course</title>
+    <link rel="stylesheet" href="{% static 'css/addcourse.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img  class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">WELCOME TO FUTURE SMILE</h3>
+          <p class="text">
+            Add your course with corresponding details. Our
+            Team will connect with you within 3 days for verification.
+            Respond the call otherwise your course information will
+            get removed.
+
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="" class="icon" alt="" />
+              <p>FutureSmile-ERNAKULAM</p>
+            </div>
+            <div class="information">
+              <img src="" class="icon" alt="" />
+              <p>futuresmile@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="" class="icon" alt="" />
+              <p>+91 9656 794 373</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="addcourse" method="post" autocomplete="off">
+            {% csrf_token %}
+            <h3 class="title">COURSE DETAILS</h3>
+            <div class="input-container">
+              <input type="text" name="cname" class="input" required/>
+              <label for="">Course Name</label>
+              <span>Course Name</span>
+            </div>
+            <div class="input-container">
+              <input type="text" name="iname" class="input" required/>
+              <label for="">Institute Name</label>
+              <span>Institute Name</span>
+            </div>
+            <div class="input-container">
+                <input type="text" name="duration" class="input" required/>
+                <label for="">Duration</label>
+                <span>Duration</span>
+              </div>
+              <div class="input-container">
+                <input type="text" name="mode" class="input" required/>
+                <label for="">Offline/Online/Both</label>
+                <span>Offline/Online/Both</span>
+              </div>
+            <div class="input-container">
+              <input type="text" name="location" class="input" required/>
+              <label for="">Location</label>
+              <span>Location</span>
+            </div>
+            <div class="input-container">
+                <select class="input" name="cat">
+                  <option></option>
+                    <option  value="programming">Programming</option>
+                    <option value="networking">Networking</option>
+                    <option value="other">Other</option></select>
+                <label for="">Category</label>
+                <span>Category</span>
+              </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" required/>
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="cdetails" class="input" minlength="30" maxlength="999" required></textarea>
+              <label for="">Course Details</label>
+              <span>Message</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="room" class="input" minlength="20" maxlength="999" ></textarea>
+              <label for="">Nearby Hostel/Rooms/Appartments Details</label>
+              <span>Nearby Hostel/Rooms/Appartments Details</span>
+            </div>
+            <input type="submit" value="ADD" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll(".input");
+
+        function focusFunc() {
+        let parent = this.parentNode;
+        parent.classList.add("focus");
+        }
+
+        function blurFunc() {
+        let parent = this.parentNode;
+        if (this.value == "") {
+            parent.classList.remove("focus");
+        }
+        }
+
+        inputs.forEach((input) => {
+        input.addEventListener("focus", focusFunc);
+        input.addEventListener("blur", blurFunc);
+        });
+    </script>
+  </body>
+</html>
